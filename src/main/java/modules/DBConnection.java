@@ -4,12 +4,14 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnection {
-    public static Connection getConnection() {
+
+    public Connection getConnection() {
         try {
-            String jdbcURl = System.getenv("jdbc:postgresql://localhost:5432/annex_db");
-            String user = System.getenv("postgres");
-            String password = System.getenv("123");
-            return DriverManager.getConnection(jdbcURl, user, password);
+            String jdbcURL = "jdbc:postgresql://localhost:5432/annex2_db";
+            String user = "postgres";
+            String password = "123";
+
+            return DriverManager.getConnection(jdbcURL, user, password);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
